@@ -14,4 +14,4 @@ if __name__ == "__main__":
     if argc:
         nums = sys.argv[1:]
         response = reducer(nums, add)
-        print(response)
+    print(response)
