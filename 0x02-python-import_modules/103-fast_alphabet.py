@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-from string import ascii_uppercase
-print("{:s}".format(ascii_uppercase))
+import string
+print("{:s}".format(string.ascii_uppercase))
