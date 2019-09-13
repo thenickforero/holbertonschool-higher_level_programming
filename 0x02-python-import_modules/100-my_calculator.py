@@ -8,13 +8,16 @@ if __name__ == "__main__":
         '*': mul,
         '/': div
     }
-    if len(argv) > 1:
-        a = int(argv[1])
-        b = int(argv[3])
-        operation = argv[2]
-        c = operations.get(operation)
-        result = c(a, b)
-        print('{:d} {:s} {:d} = {:d}'.format(a, operation, b, result))
-    else:
+    if len(argv) != 4:
+            print("Usage: ./100-my_calculator.py <a> <operator> <b>")
+            exit(1)
+    operator = argv[2]
+    operation = operations.get(operator)
+    if operation is None:
         print('Unknown operator. Available operators: +, -, * and /')
         exit(1)
+    else:
+        a = int(argv[1])
+        b = int(argv[3])
+        result = operation(a, b)
+        print('{:d} {:s} {:d} = {:d}'.format(a, operator, b, result))
