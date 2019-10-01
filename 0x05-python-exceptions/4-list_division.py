@@ -4,7 +4,7 @@ def list_division(my_list_1, my_list_2, list_length):
     data = 0
     for i in range(list_length):
         try:
-            data = int(my_list_1[i]) / int(my_list_2[i])
+            data = my_list_1[i] / my_list_2[i]
         except ZeroDivisionError:
             data = 0
             print("{:s}".format('division by 0'))
