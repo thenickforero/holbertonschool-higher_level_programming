@@ -19,6 +19,6 @@ class Square:
             with the formula:
                                 area = @size ^ 2 = @size * @size
             Return:
-                    Power of the Square size to 2 
+                    Power of the Square size to 2
                     or size multiplicated by size."""
         return (self.__size ** 2)
