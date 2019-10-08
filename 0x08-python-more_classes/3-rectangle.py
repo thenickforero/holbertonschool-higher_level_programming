@@ -86,7 +86,8 @@ class Rectangle:
                      character, it represents a 2d rectangle.
         """
         rectangle = ''
-        for row in range(self.height):
-            rectangle += '#' * self.width
-            rectangle += '\n' if row != self.height - 1 else ''
+        if self.width != 0 and self.height != 0:
+            for row in range(self.height):
+                rectangle += '#' * self.width
+                rectangle += '\n' if row != self.height - 1 else ''
         return rectangle
