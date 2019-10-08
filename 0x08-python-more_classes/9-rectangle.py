@@ -151,4 +151,4 @@ class Rectangle:
         Returns:
             Rectangle   -- The new Rectangle with size as his height and width.
         """
-        return Rectangle(size, size)
+        return cls(size, size)
