@@ -96,7 +96,7 @@ class Base:
         """
         if cls.__name__ == 'Rectangle':
             response = cls(1, 1, 8, 8)
-        elif cls.__name__ == 'Square':
+        if cls.__name__ == 'Square':
             response = cls(1, 1, 8)
         response.update(**dictionary)
         return response
