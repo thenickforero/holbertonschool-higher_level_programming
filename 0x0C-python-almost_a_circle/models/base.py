@@ -6,6 +6,8 @@ It contains the base logic for handle id's for every instance created an to
 handle the bidirectional representation of every object in a JSON format.
 """
 import json
+import turtle
+import random
 
 
 class Base:
@@ -118,3 +120,37 @@ class Base:
                 return list_instances
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Prints a rectangle in a turtle canvas.
+
+        Arguments:
+            list_rectangles {list[Rectangle]}   --  A list with Rectangles
+                                                    to print.
+            list_squares {list[Square]}         --  A list with Squares
+                                                    to print.
+        """
+        def draw_figure(x, y, width, height):
+            """Helper function to print any figure.
+            """
+            color = ('green', 'blue', 'yellow',
+                     'red', 'black', 'orange', 'pink')
+            myPen = turtle.Turtle()
+            myPen.shape("turtle")
+            myPen.penup()
+            myPen.speed(5)
+            myPen.goto(x, y)
+            myPen.pendown()
+            myPen.begin_fill()
+            myPen.color(random.choice(color))
+            for i in range(4):
+                myPen.forward(width if i % 2 == 0 else height)
+                myPen.left(90)
+            myPen.end_fill()
+
+        for rectangle in list_rectangles:
+            draw_figure(rectangle.x, rectangle.y, rectangle.width,
+                        rectangle.height)
+        for square in list_squares:
+            draw_figure(square.x, square.y, square.size, square.size)
