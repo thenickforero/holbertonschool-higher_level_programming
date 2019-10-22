@@ -95,9 +95,9 @@ class Base:
                         stored in @dictionary.
         """
         if cls.__name__ == 'Rectangle':
-            response = cls(1, 1, 8, 8)
+            response = cls(1, 1, 0, 0)
         if cls.__name__ == 'Square':
-            response = cls(1, 1, 8)
+            response = cls(1, 0, 0)
         response.update(**dictionary)
         return response
 
