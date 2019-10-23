@@ -131,26 +131,32 @@ class Base:
             list_squares {list[Square]}         --  A list with Squares
                                                     to print.
         """
-        def draw_figure(x, y, width, height):
+        drawer = turtle.Turtle()
+        drawer.shape("turtle")
+
+        def draw_figure(x, y, width, height, pen):
             """Helper function to print any figure.
             """
             color = ('green', 'blue', 'yellow',
                      'red', 'black', 'orange', 'pink')
-            myPen = turtle.Turtle()
-            myPen.shape("turtle")
-            myPen.penup()
-            myPen.speed(5)
-            myPen.goto(x, y)
-            myPen.pendown()
-            myPen.begin_fill()
-            myPen.color(random.choice(color))
+
+            pen.penup()
+            pen.speed(5)
+            pen.goto(x, y)
+            pen.pendown()
+            pen.begin_fill()
+            pen.color(random.choice(color))
             for i in range(4):
-                myPen.forward(width if i % 2 == 0 else height)
-                myPen.left(90)
-            myPen.end_fill()
+                pen.forward(width if i % 2 == 0 else height)
+                pen.left(90)
+            pen.end_fill()
 
         for rectangle in list_rectangles:
             draw_figure(rectangle.x, rectangle.y, rectangle.width,
-                        rectangle.height)
+                        rectangle.height, drawer)
         for square in list_squares:
-            draw_figure(square.x, square.y, square.size, square.size)
+            draw_figure(square.x, square.y, square.size, square.size, drawer)
+
+        drawer.hideturtle()
+        screen = turtle.Screen()
+        screen.exitonclick()

@@ -147,7 +147,7 @@ class Rectangle(Base):
                         attributes.
         """
         base = '[Rectangle] ({}) {}/{} - {}/{}'
-        return (base.format(self.id, self.x, self.y, self.width, self.height))
+        return base.format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         """Updates certain fields of the instance,
