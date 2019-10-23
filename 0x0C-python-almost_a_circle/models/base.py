@@ -8,6 +8,7 @@ handle the bidirectional representation of every object in a JSON format.
 import json
 import turtle
 import random
+import csv
 
 
 class Base:
@@ -56,8 +57,7 @@ class Base:
         """Saves a list of instance objects in a JSON formatted file.
 
         Arguments:
-            list_objs {list[dict]}  --  The list with dictionaries of
-                                        Base object instances
+            list_objs {list[dict]}  --  The list of Base object instances
                                         (with its properties)
                                         that will be processed.
         """
@@ -160,3 +160,46 @@ class Base:
         drawer.hideturtle()
         screen = turtle.Screen()
         screen.exitonclick()
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Saves a list of instance objects in a CSV formatted file.
+
+        Arguments:
+            list_objs {list[dict]}  --  The list of Base object instances
+                                        (with its properties)
+                                        that will be processed.
+        """
+        with open('{}.csv'.format(cls.__name__), "w") as file:
+            instances_list = [
+                instance.to_dictionary() for instance in list_objs
+            ]
+            if cls.__name__ == "Rectangle":
+                fields = ["id", "width", "height", "x", "y"]
+            else:
+                fields = ["id", "size", "x", "y"]
+            data_writer = csv.DictWriter(file, fields)
+            data_writer.writeheader()
+            data_writer.writerows(instances_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Creates a list of Base subclass objects
+        based on the content of a CSV formatted file.
+
+        Returns:
+            {list[cls]}     --  The list with the instances of the objects
+                                stored in the CSV file.
+        """
+        try:
+            with open('{}.csv'.format(cls.__name__), 'r') as file:
+                data = csv.DictReader(file)
+                lines = [dict(line) for line in data]
+                props = [{
+                    key: int(value)
+                    for (key, value) in dictionary.items()
+                } for dictionary in lines]
+                instances = [cls.create(**prop) for prop in props]
+            return instances
+        except FileNotFoundError:
+            return []
