@@ -5,6 +5,6 @@ INNER JOIN tv_show_genres
 ON tv_show_genres.show_id = tv_shows.id
 INNER JOIN tv_genres
 ON tv_genres.id = tv_show_genres.genre_id
-WHERE tv_genres.name  ='Comedy'
+WHERE tv_genres.name  = 'Comedy'
 -- Results must be sorted in ascending order by the show title
 ORDER BY tv_shows.title ASC;
