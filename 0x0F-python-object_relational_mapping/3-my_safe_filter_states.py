@@ -25,7 +25,7 @@ if __name__ == "__main__":
     cursor = database.cursor()
 
     query = ('SELECT * FROM states '
-             'WHERE name LIKE BINARY %s '
+             'WHERE name = %s '
              'ORDER BY states.id ASC')
 
     cursor.execute(query, (searched_state_name,))
