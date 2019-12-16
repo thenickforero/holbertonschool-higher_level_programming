@@ -23,7 +23,7 @@ if __name__ == "__main__":
     cursor = database.cursor()
 
     query = ('SELECT * FROM states '
-             'WHERE name RLIKE "^N" '
+             'WHERE name LIKE BINARY "N%" '
              'ORDER BY states.id ASC')
 
     cursor.execute(query)
