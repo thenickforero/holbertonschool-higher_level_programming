@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Lists every object of a States table
-that contains the letter "a" in its name
+"""Prints the id of a certain state in a States table
 from a database using SQLAlchemy
 with certain database configuration specified via cmdline args.
 """
@@ -12,7 +11,7 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
 
-    [db_username, db_password, db_name] = sys.argv[1:]
+    [db_username, db_password, db_name, state] = sys.argv[1:]
 
     connection_configuration = {
         'host': 'localhost',
@@ -29,7 +28,9 @@ if __name__ == '__main__':
     session_base_class = sessionmaker(engine)
     session = session_base_class()
 
-    query = session.query(State).filter(State.name.contains('a'))
+    query = session.query(State).filter(State.name == state).first()
 
-    for row in query:
-        print("{}: {}".format(row.id, row.name))
+    try:
+        print(query.id)
+    except AttributeError:
+        print("Not found")
