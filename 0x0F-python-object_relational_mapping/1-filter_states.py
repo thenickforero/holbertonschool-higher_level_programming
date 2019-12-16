@@ -12,7 +12,7 @@ if __name__ == "__main__":
     [db_username, db_password, db_name] = sys.argv[1:]
 
     connection_configuration = {
-        'host': '127.0.0.1',
+        'host': 'localhost',
         'user': db_username,
         'passwd': db_password,
         'db': db_name,

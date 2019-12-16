@@ -11,7 +11,7 @@ if __name__ == "__main__":
     [db_username, db_password, db_name] = sys.argv[1:]
 
     connection_configuration = {
-        'host': '127.0.0.1',
+        'host': 'localhost',
         'user': db_username,
         'passwd': db_password,
         'db': db_name,
@@ -23,7 +23,8 @@ if __name__ == "__main__":
 
     query = ('SELECT cities.id, cities.name, states.name '
              'FROM states JOIN cities '
-             'ON states.id = cities.state_id')
+             'ON states.id = cities.state_id '
+             'ORDER BY cities.id ASC')
 
     cursor.execute(query)
     result = cursor.fetchall()
