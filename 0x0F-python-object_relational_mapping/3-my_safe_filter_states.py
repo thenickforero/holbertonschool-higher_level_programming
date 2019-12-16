@@ -24,9 +24,9 @@ if __name__ == "__main__":
     database = connector.connect(**connection_configuration)
     cursor = database.cursor()
 
-    cursor.execute(('SELECT * FROM states '
-                    'WHERE name = %s '
-                    'ORDER BY states.id ASC'), (searched_state_name, ))
+    cursor.execute("""SELECT * FROM states \
+                    WHERE name = %s \
+                    ORDER BY states.id ASC""", (searched_state_name, ))
 
     result = cursor.fetchall()
     for row in result:
