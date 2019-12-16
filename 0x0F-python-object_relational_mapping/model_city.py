@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-"""Class that represents the Cities table on the SQLAlchemy ORM
+"""Class that represents the Cities table on the SQLAlchemy ORM.
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from model_state import Base
 
 
 class City(Base):
