@@ -24,7 +24,9 @@ if __name__ == "__main__":
     database = connector.connect(**connection_configuration)
     cursor = database.cursor()
 
-    query = 'SELECT * FROM states WHERE name REGEXP %s ORDER BY states.id ASC'
+    query = ('SELECT * FROM states '
+             'WHERE name LIKE BINARY %s '
+             'ORDER BY states.id ASC')
 
     cursor.execute(query, (searched_state_name,))
     result = cursor.fetchall()

@@ -23,7 +23,7 @@ if __name__ == "__main__":
     cursor = database.cursor()
 
     query = ('SELECT * FROM states '
-             'WHERE name REGEXP "{}" '
+             'WHERE name LIKE BINARY "{}" '
              'ORDER BY states.id ASC')
 
     cursor.execute(query.format(searched_state_name))
