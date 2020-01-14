@@ -7,7 +7,7 @@ in the case of an invalid URL it will be an unexpected behaviour
 and maybe it will fail.
 """
 from sys import argv
-from urllib.error import HTTPError
+import urllib.error
 from urllib.request import (urlopen, Request)
 
 if __name__ == "__main__":
@@ -16,5 +16,5 @@ if __name__ == "__main__":
         with urlopen(req) as res:
             data = res.read()
             print(data.decode('utf-8'))
-    except HTTPError as e:
+    except urllib.error.HTTPError as e:
         print('Error code: ', e.code)
