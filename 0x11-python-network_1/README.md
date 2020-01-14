@@ -54,15 +54,27 @@ What you should learn from this project:
 
 ### [8. Search API](./8-json_api.py)
 
-* Python script that takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
+* Python script that takes in a letter and sends a POST request to an API with the letter as a parameter.
 
 ### [9. Star Wars API #0](./9-starwars.py)
 
-* Python script that takes in a string and sends a search request to the Star Wars API.
+* Python script that takes in a string and sends a search request to the Star Wars People API and retrieves a list of characters.
 
 ### [10. My Github!](./10-my_github.py)
 
 * Python script that takes your Github credentials (username and password) and uses the Github API to display your id.
+
+### [11. Time for an interview!](./100-github_commits.py)
+
+* Python script that lists 10 commits (from the most recent to oldest) of a repo from a certain owner.
+
+### [12. Star Wars API #1](./101-starwars.py)
+
+* Python script that takes in a string and sends a search request to the Star Wars People API and retrieves a list of characters without taking in account the pagination (it means that it isn't limited by the pagination of the API and it auto query all the results).
+
+### [13. Star Wars API #2](./102-starwars.py)
+
+* Python script that takes in a string and sends a search request to the Star Wars People API and retrieves a list of characters with the films that they appear.
 
 ---
 
