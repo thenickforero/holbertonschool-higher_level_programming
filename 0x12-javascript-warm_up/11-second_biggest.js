@@ -5,11 +5,10 @@
     If the number of arguments is 1, print 0
 */
 
-const numArgs = process.argv.length - 2;
+const numbers = process.argv.slice(2).map(a => parseInt(a, 10)).sort().reverse();
 
-if (!numArgs || numArgs === 1) {
+if (!numbers.length || numbers.length === 1) {
   console.log(0);
 } else {
-  const numbers = process.argv.slice(2).sort().reverse();
   console.log(numbers[1]);
 }
