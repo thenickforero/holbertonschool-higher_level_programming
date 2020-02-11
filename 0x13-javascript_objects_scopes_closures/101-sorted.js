@@ -7,6 +7,7 @@
     - A value is the list of user ids
 
 */
+
 const data = require('./101-data.js').dict;
 const ocurrences = {};
 for (const key in data) {
