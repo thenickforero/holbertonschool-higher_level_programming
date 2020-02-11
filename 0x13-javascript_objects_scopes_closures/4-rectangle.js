@@ -1,9 +1,9 @@
 #!/usr/bin/node
 /*  Base class to make a Rectangle with:
-- Validated dimensions.
-- Method to print representation in console.
-- Method to swap the height and the width.
-- Method to double the dimensions of the Rectangle (multiplies by 2).
+    - Validated dimensions.
+    - Method to print representation in console.
+    - Method to swap the height and the width.
+    - Method to double the dimensions of the Rectangle (multiplies by 2).
 */
 
 class Rectangle {

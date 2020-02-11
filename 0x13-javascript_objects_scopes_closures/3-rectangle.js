@@ -1,7 +1,7 @@
 #!/usr/bin/node
 /*  Base class to make a Rectangle with:
-- Validated dimensions.
-- Print to console method.
+    - Validated dimensions.
+    - Print to console method.
 */
 
 class Rectangle {

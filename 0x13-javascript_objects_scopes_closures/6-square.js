@@ -1,11 +1,11 @@
 #!/usr/bin/node
 /*  Base class to make a Square with:
-- Specific size.
-- Validated dimensions.
-- Method to print representation in console
-(optionally using a specific character).
-- Method to swap the height and the width.
-- Method to double the dimensions of the Rectangle (multiplies by 2).
+    - Specific size.
+    - Validated dimensions.
+    - Method to print representation in console
+    (optionally using a specific character).
+    - Method to swap the height and the width.
+    - Method to double the dimensions of the Rectangle (multiplies by 2).
 */
 
 const Base = require('./5-square');
