@@ -4,7 +4,10 @@
       https://jsonplaceholder.typicode.com/todos
 */
 
-const url = process.argv[2];
+const options = {
+  url: process.argv[2],
+  qs: { completed: 'true' }
+};
 const { get } = require('request');
 const handler = (error, response, body) => {
   if (error) {
@@ -16,15 +19,14 @@ const handler = (error, response, body) => {
     const tasksCompleted = {};
     for (const todo of body) {
       const key = todo.userId;
-      if (tasksCompleted[key] === undefined) {
-        tasksCompleted[key] = 0;
-      }
-      if (todo.completed) {
+      if (key in tasksCompleted) {
         tasksCompleted[key] += 1;
+      } else {
+        tasksCompleted[key] = 1;
       }
     }
     console.log(tasksCompleted);
   }
 };
 
-get(url, handler);
+get(options, handler);
