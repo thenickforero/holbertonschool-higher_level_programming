@@ -19,12 +19,10 @@ const handler = (error, response, body) => {
     let count = 0;
     const movies = body.results;
     for (const movie of movies) {
-      const characters = movie.characters;
-      for (const character of characters) {
-        if (character.includes(wedgeId)) {
-          count++;
-        }
-      }
+      const characterCount = movie.characters.filter((data) => {
+        return data.includes(wedgeId);
+      });
+      count += characterCount.length;
     }
     console.log(count);
   }
