@@ -22,7 +22,9 @@ const handler = (error, response, body) => {
       if (tasksCompleted[key] === undefined) {
         tasksCompleted[key] = 0;
       }
-      tasksCompleted[key] += 1;
+      if (todo.completed) {
+        tasksCompleted[key] += 1;
+      }
     }
     console.log(tasksCompleted);
   }
