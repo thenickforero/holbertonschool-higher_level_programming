@@ -6,7 +6,7 @@ const { get } = require('request');
 const { promisify } = require('util');
 const getCharacter = promisify(get);
 
-async function getCharacterName(url) {
+async function getCharacterName (url) {
   try {
     const character = await getCharacter(url);
     console.log(JSON.parse(character.body).name);
