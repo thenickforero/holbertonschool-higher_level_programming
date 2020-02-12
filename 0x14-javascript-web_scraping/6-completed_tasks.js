@@ -4,7 +4,10 @@
       https://jsonplaceholder.typicode.com/todos
 */
 
-const url = process.argv[2];
+const options = {
+  url: process.argv[2],
+  headers: { completed: 'true' }
+};
 const { get } = require('request');
 const handler = (error, response, body) => {
   if (error) {
@@ -25,4 +28,4 @@ const handler = (error, response, body) => {
   }
 };
 
-get(url, handler);
+get(options, handler);
