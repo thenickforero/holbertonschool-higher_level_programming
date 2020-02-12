@@ -4,7 +4,7 @@
       https://jsonplaceholder.typicode.com/todos
 */
 
-const url =  process.argv[2];
+const url = process.argv[2];
 const { get } = require('request');
 const handler = (error, response, body) => {
   if (error) {
