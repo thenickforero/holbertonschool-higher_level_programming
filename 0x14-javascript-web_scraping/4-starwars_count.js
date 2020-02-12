@@ -7,7 +7,7 @@
 */
 
 const url = process.argv[2];
-const wedge = 'https://swapi.co/api/people/18/';
+const wedgeId = '18';
 const { get } = require('request');
 const handler = (error, response, body) => {
   if (error) {
@@ -20,8 +20,10 @@ const handler = (error, response, body) => {
     const movies = body.results;
     for (const movie of movies) {
       const characters = movie.characters;
-      if (characters.includes(wedge)) {
-        count++;
+      for (const character of characters) {
+        if (character.includes(wedgeId)) {
+          count++;
+        }
       }
     }
     console.log(count);
