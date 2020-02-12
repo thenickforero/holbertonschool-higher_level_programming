@@ -10,7 +10,9 @@ const url = process.argv[2];
 const wedge = 'https://swapi.co/api/people/18/';
 const { get } = require('request');
 const handler = (error, response, body) => {
-  if (!error && response.statusCode === 200) {
+  if (error) {
+    console.log(error);
+  } else {
     if (typeof body === 'string') {
       body = JSON.parse(body);
     }
