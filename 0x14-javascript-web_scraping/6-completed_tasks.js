@@ -13,15 +13,14 @@ const handler = (error, response, body) => {
     if (typeof body === 'string') {
       body = JSON.parse(body);
     }
+    const parsedBody = body.filter((todo) => todo.completed);
     const tasksCompleted = {};
-    for (const todo of body) {
-      if (todo.completed) {
-        const key = todo.userId;
-        if (key in tasksCompleted) {
-          tasksCompleted[key] += 1;
-        } else {
-          tasksCompleted[key] = 1;
-        }
+    for (const todo of parsedBody) {
+      const key = todo.userId;
+      if (key in tasksCompleted) {
+        tasksCompleted[key] += 1;
+      } else {
+        tasksCompleted[key] = 1;
       }
     }
     console.log(tasksCompleted);
